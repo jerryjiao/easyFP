@@ -3,6 +3,8 @@ os: linux
 branches:
   only:
     - master
+install:
+    - yarn install
 deploy:
   provider: npm
   email: mailtojerry@foxmail.com

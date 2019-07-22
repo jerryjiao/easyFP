@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  -11
+cache:
+  yarn: true
+os: linux
+branches:
+  only:
+    - master
+deploy:
+  provider: npm
+  email: mailtojerry@foxmail.com
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true

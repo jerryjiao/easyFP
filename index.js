@@ -73,4 +73,14 @@
    */
   const both = x => y => x&&y
 
+  exports.F = F
+  exports.T = T
+  exports.pipe = pipe
+  exports.trace = trace
+  exports.map = map
+  exports.filter = filter
+  exports.foreach = foreach
+  exports.concat = concat
+  exports.either = either
+  exports.both = both
 }))

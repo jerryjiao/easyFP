@@ -29,6 +29,9 @@
       "commit-msg": "commitlint -e $GIT_PARAMS"
     }
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@commitlint/config-conventional": "^8.0.0",
     "commitizen": "^3.1.1",

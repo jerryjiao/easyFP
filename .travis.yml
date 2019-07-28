@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 11
+    - "10"
 env:
     - CXX=g++-4.8
 addons:
@@ -9,28 +9,22 @@ addons:
             - ubuntu-toolchain-r-test
         packages:
             - g++-4.8
-branches:
-  only:
-    - master
-deploy:
-  provider: npm
-  email: mailtojerry@foxmail.com
-  api_key: "$NPM_TOKEN"
-  skip_cleanup: true
-script: echo "npm test temporarily disabled"
 install:
     - npm install -g vuepress
 script:
-  - npm run docs:build
+    - npm run docs:build
 cache:
-  directories:
-      - "node_modules"
+    directories:
+        - "node_modules"
+notifications:
+    email: false
 deploy:
-  provider: pages
-  skip-cleanup: true
-  local_dir: docs/.vuepress/dist
-  github-token: $GITHUB_TOKEN # a token generated on github allowing travis to push code on you repository
-  keep-history: true,
-  target_branch: master,
-  on:
-    branch: master
+    provider: pages
+    skip-cleanup: true
+    local_dir: docs/.vuepress/dist
+    github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    repo: <username || or org name>/<publication repo name>
+    keep-history: true
+    target-branch: master
+    on:
+        branch: master

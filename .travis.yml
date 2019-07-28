@@ -11,9 +11,13 @@ deploy:
   api_key: "$NPM_TOKEN"
   skip_cleanup: true
 script: echo "npm test temporarily disabled"
+install:
+    - npm install -g vuepress
 script:
-  - npm i vuepress -g
   - npm run docs:build
+cache:
+  directories:
+      - "node_modules"
 deploy:
   provider: pages
   skip-cleanup: true

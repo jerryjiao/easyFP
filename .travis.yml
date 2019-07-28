@@ -12,6 +12,7 @@ deploy:
   skip_cleanup: true
 script: echo "npm test temporarily disabled"
 script:
+  - npm i vuepress -g
   - npm run docs:build
 deploy:
   provider: pages

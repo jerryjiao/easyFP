@@ -156,4 +156,5 @@
   exports.both = both
   exports.add = add
   exports.arrPush = arrPush
+  exports.isArray = isArray
 }))

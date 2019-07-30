@@ -4,7 +4,7 @@
   "description": "a just enough functional programming tools",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": " mocha test",
     "commit": "git cz",
     "upload": "git add . && git cz",
     "release": "standard-version",

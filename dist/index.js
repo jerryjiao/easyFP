@@ -163,6 +163,7 @@
 
   exports.F = F
   exports.T = T
+  exports.isArray = isArray
   exports.pipe = pipe
   exports.trace = trace
   exports.map = map

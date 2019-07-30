@@ -1,9 +1,11 @@
+/* eslint-disable */
 (function (global, factory) {
   typeof exports == 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (factory((global.E = {})))
 })(this, (function (exports) { 'use strict';
   // ================= base functions =================
+  const INFINITY = 1 / 0
   /**
    * Always Return False
    * 
@@ -36,20 +38,22 @@
    * @returns
    */
   const baseFlatten = (arr, depth,predicate,result) => {
-    let index = -1,
-        length = arr.length
-    
     predicate || (predicate = isFlattenable)    
     result || (result = [])
 
-    while(++index < length) {
-      let value = array[index]
+    if (arr == null) {
+      return result
+    }
+
+    for (const value of arr) {
       if (depth > 0 && predicate(value)) {
         if(depth > 1) {
-          baseFlattern(value, depth - 1,predicate,result)
+          baseFlatten(value, depth - 1,predicate,result)
         } else {
-          result.push(value)
+          result.push(...value)
         }
+      } else {
+        result[result.length] = value
       }
     }
     return result;
@@ -112,10 +116,23 @@
    */
   const arrPush = arr => value => arr.push(value)
 
-  const flatten = arr => {
-    
+  const flattenDeep = arr => {
+    const length = arr == null ? 0 : arr.length
+    return length ? baseFlatten(arr, INFINITY) : []
   }
-
+  
+  const flatten = arr => {
+    const length = arr == null ? 0 : arr.length
+    return length ? baseFlatten(arr, 1) : []
+  }
+  // ================= object functions ==================
+  const objValue = key => obj => obj[key]
+  const objChangeValue = fn => key => obj =>  {
+    return {
+      ...obj,
+      [`${key}`] : fn(obj[key])
+    }
+  }
   // ================= Logical functions =================
   /**
    *
@@ -156,5 +173,8 @@
   exports.both = both
   exports.add = add
   exports.arrPush = arrPush
-  exports.isArray = isArray
+  exports.flatten = flatten
+  exports.flattenDeep = flattenDeep
+  exports.objValue = objValue
+  exports.objChangeValue = objChangeValue
 }))

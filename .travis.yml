@@ -31,6 +31,7 @@ deploy:
         target-branch: gh-pages
         on:
             branch: master
+            tags: true
 
 branches:
   only:

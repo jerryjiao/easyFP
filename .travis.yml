@@ -31,6 +31,8 @@ deploy:
     email: mailtojerry@foxmail.com
     api_key: "$NPM_TOKEN"
     skip_cleanup: true
+    on:
+        tags: true
 branches:
   only:
     - master

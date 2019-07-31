@@ -1,6 +1,6 @@
 {
   "name": "easyfp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a just enough functional programming tools",
   "main": "index.js",
   "scripts": {

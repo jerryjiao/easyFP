@@ -19,7 +19,7 @@ cache:
 notifications:
     email: false
 deploy:
-    provider: pages
+    - provider: pages
     skip-cleanup: true
     local_dir: docs/.vuepress/dist
     github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
@@ -27,7 +27,7 @@ deploy:
     target-branch: gh-pages
     on:
         branch: master
-    provider: npm
+    - provider: npm
     email: mailtojerry@foxmail.com
     api_key: "$NPM_TOKEN"
     skip_cleanup: true

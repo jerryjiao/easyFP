@@ -11,10 +11,13 @@ addons:
             - g++-4.8
 install:
     - npm install -g vuepress
-script:
-    - npm run docs:build
+    
 notifications:
     email: false
+    
+before_deploy:
+    - npm run docs:build
+    
 deploy:
    - provider: pages
      skip-cleanup: true

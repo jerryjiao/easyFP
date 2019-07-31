@@ -19,10 +19,6 @@ cache:
 notifications:
     email: false
 deploy:
-    provider: npm
-    email: mailtojerry@foxmail.com
-    api_key: "$NPM_TOKEN"
-    skip_cleanup: true
     provider: pages
     skip-cleanup: true
     local_dir: docs/.vuepress/dist
@@ -31,6 +27,10 @@ deploy:
     target-branch: gh-pages
     on:
         branch: master
+    provider: npm
+    email: mailtojerry@foxmail.com
+    api_key: "$NPM_TOKEN"
+    skip_cleanup: true
 branches:
   only:
     - master

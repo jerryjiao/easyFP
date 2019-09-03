@@ -4,7 +4,8 @@
   "description": "a just enough functional programming tools",
   "main": "index.js",
   "scripts": {
-    "test": " mocha test",
+    "test": " mocha test/**/*.js --require @babel/register",
+    "build": "rollup -c",
     "commit": "git cz",
     "upload": "git add . && git cz",
     "release": "standard-version",
@@ -35,11 +36,21 @@
     "dist"
   ],
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-plugin-external-helpers": "^6.22.0",
     "@commitlint/config-conventional": "^8.0.0",
     "chai": "^4.2.0",
+    "mocha": "^6.2.0",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^2.4.1",
-    "standard-version": "^6.0.1"
+    "standard-version": "^6.0.1",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.1"
   }
 }

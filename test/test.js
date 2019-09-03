@@ -1,4 +1,4 @@
-const E = require('./dist/index')
+import E from '../dist/index'
 const {expect} = require('chai')
 
 // isArray

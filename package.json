@@ -1,8 +1,8 @@
 {
   "name": "easyfp",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "a just enough functional programming tools",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": " mocha test/**/*.js --require @babel/register",
     "build": "rollup -c",
@@ -33,7 +33,7 @@
     }
   },
   "files": [
-    "dist"
+    "dist/index.js"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
